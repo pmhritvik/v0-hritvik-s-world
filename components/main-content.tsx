@@ -2,7 +2,7 @@
 
 import { useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
-import { Calendar, Building2, Star } from "lucide-react"
+import { Calendar, Building2, Star, MapPin } from "lucide-react"
 import Image from "next/image"
 
 const fadeInUp = {
