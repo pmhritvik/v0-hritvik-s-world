@@ -41,11 +41,12 @@ export function Sidebar() {
           />
         </div>
 
-        {/* Name, Title, Pronouns, Location */}
+        {/* Name, Pronouns, Verified Badge, Title, Location */}
         <div className="flex-1 min-w-0">
-          {/* Name with verified badge */}
-          <div className="flex items-center gap-2 mb-0.5">
+          {/* Name, Pronouns, Verified Badge */}
+          <div className="flex items-center gap-2 mb-0.5 flex-wrap">
             <h1 className="text-xl lg:text-2xl font-semibold text-foreground">Hritvik Gaur</h1>
+            <span className="text-xs text-muted-foreground">he/him</span>
             <svg
               className="w-4 h-4 shrink-0"
               viewBox="0 0 24 24"
@@ -63,10 +64,7 @@ export function Sidebar() {
           </div>
 
           {/* Title */}
-          <p className="text-sm text-foreground mb-0.5">AI Product Manager</p>
-
-          {/* Pronouns */}
-          <p className="text-xs text-muted-foreground mb-1">he/him</p>
+          <p className="text-sm text-foreground mb-1">AI Product Manager</p>
 
           {/* Location */}
           <div className="flex items-center gap-1 text-xs text-muted-foreground">
