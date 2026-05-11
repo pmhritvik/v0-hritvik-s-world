@@ -3,22 +3,6 @@
 import Image from "next/image"
 import { Mail, Globe, Phone, Linkedin, Instagram, Youtube, MapPin } from "lucide-react"
 
-const skills = [
-  "Product Strategy",
-  "Roadmapping",
-  "OKRs",
-  "RICE",
-  "JTBD",
-  "A/B Testing",
-  "SQL",
-  "Figma",
-  "Jira",
-  "Tableau",
-  "Power BI",
-  "Python (Basic)",
-  "AI & Automation",
-]
-
 const languages = [
   { name: "English", flag: "🇬🇧" },
   { name: "Hindi", flag: "🇮🇳" },
@@ -133,23 +117,7 @@ export function Sidebar() {
         </div>
       </div>
 
-      {/* Skills */}
-      <div className="mb-6">
-        <h2 className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground mb-2">
-          Skills
-        </h2>
-        <div className="flex flex-wrap gap-2">
-          {skills.map((skill) => (
-            <span
-              key={skill}
-              className="px-3 py-1 text-xs rounded-full border border-border text-foreground"
-            >
-              {skill}
-            </span>
-          ))}
-        </div>
-      </div>
-
+  
       {/* Languages */}
       <div className="mb-6">
         <h2 className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground mb-2">
