@@ -119,18 +119,28 @@ const certifications = [] as { title: string; issuer: string; iconColor: string 
 
 const testimonials = [
   {
-    name: "Evelyn Brooks",
-    role: "Lead Engineer at Sigma, managed Hritvik directly",
+    name: "Richard Carter",
+    role: "ServiceNow Manager at West Monroe",
+    relationship: "Richard was Hritvik's mentor",
     quote:
-      "Having worked alongside Hritvik, I've been consistently impressed by his exceptional skills as a product manager. Hritvik's hands-on approach and dedication to building robust products have greatly contributed to our project's success.",
-    avatar: "/testimonial-1.jpg",
+      "What impressed me most is his deep experience. Hritvik has already been part of three startups, which gives him a unique view on how to solve problems. Even though I was the mentor, I often found myself learning just as much from him. He listens very well, but he also asks the right questions that make you think. Beyond his skills, Hritvik is simply a very kind person. He is easy to talk to and treats everyone with respect. It is rare to find someone who is both this smart and this humble.",
+    avatar: "/richard-carter.jpg",
   },
   {
-    name: "Raj Patel",
-    role: "Junior Product Manager at Omega, worked with Hritvik on the same team",
+    name: "Parantap Sharma",
+    role: "SWE III at Google",
+    relationship: "Parantap worked with Hritvik on the same team",
     quote:
-      "Hritvik's expertise has been crucial in turning our ambitious project ideas into reality. His proficiency in both strategy and execution ensures a seamless integration of features, delivering a user experience that's both intuitive and high-performing.",
-    avatar: "/testimonial-2.jpg",
+      "Hritvik is among the most talented entrepreneur I have met. The most enticing thing about him is his ideas and his approach towards turning ideas into reality. I had some quality conversations with him not specifically about his venture but across industries as well. I would recommend reaching out to him to understand different aspects of entrepreneurship and specifically to figure out the USP you can provide to the customer.",
+    avatar: "/parantap-sharma.jpg",
+  },
+  {
+    name: "Navaditya Gaur",
+    role: "SDE at AWS Redshift",
+    relationship: "Navaditya reported to Hritvik directly",
+    quote:
+      "I have just completed my internship at Edten, under Hritvik's guidance I managed to sharpen my skills and got an opportunity to learn new skills in my field! He's an exemplary leader with vision for all.",
+    avatar: "/navaditya-gaur.jpg",
   },
 ]
 
@@ -424,36 +434,43 @@ export function MainContent() {
         <h2 className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-muted-foreground mb-3 sm:mb-4">
           Testimonials
         </h2>
-        <div className="space-y-3 sm:space-y-4">
+        <div className="space-y-4 sm:space-y-5">
           {testimonials.map((testimonial, index) => (
-            <div
+            <motion.div
               key={index}
-              className="rounded-xl sm:rounded-2xl border border-border bg-card p-4 sm:p-5"
+              className="relative rounded-xl sm:rounded-2xl overflow-hidden"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              style={{
+                background: "rgba(20, 20, 20, 0.6)",
+                backdropFilter: "blur(20px) saturate(140%)",
+                border: "1px solid rgba(255, 255, 255, 0.08)",
+              }}
             >
-              <div className="flex items-start gap-3 sm:gap-4">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-muted overflow-hidden shrink-0">
-                  <Image
-                    src={testimonial.avatar}
-                    alt={testimonial.name}
-                    width={48}
-                    height={48}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-sm sm:text-base font-semibold text-foreground">{testimonial.name}</h3>
-                  <p className="text-[10px] sm:text-[12px] text-muted-foreground">{testimonial.role}</p>
-                  <div className="flex items-center gap-0.5 mt-1.5 sm:mt-2">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 fill-amber-400 text-amber-400" />
-                    ))}
+              <div className="p-4 sm:p-5">
+                <div className="flex items-start gap-3 sm:gap-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-muted overflow-hidden shrink-0 ring-2 ring-white/10">
+                    <Image
+                      src={testimonial.avatar}
+                      alt={testimonial.name}
+                      width={48}
+                      height={48}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                  <p className="text-xs sm:text-sm text-muted-foreground mt-2 sm:mt-3 leading-relaxed">
-                    {testimonial.quote}
-                  </p>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-sm sm:text-base font-semibold text-foreground">{testimonial.name}</h3>
+                    <p className="text-[10px] sm:text-[12px] text-muted-foreground">{testimonial.role}</p>
+                    <p className="text-[10px] sm:text-[11px] text-muted-foreground/70 italic mt-0.5">{testimonial.relationship}</p>
+                  </div>
                 </div>
+                <p className="text-xs sm:text-sm text-muted-foreground mt-4 leading-relaxed">
+                  &ldquo;{testimonial.quote}&rdquo;
+                </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </motion.section>
