@@ -190,22 +190,31 @@ export function MainContent() {
               />
               
               {/* Content */}
-              <div className="p-5 pl-6">
-                {/* Header: Title | Company ... Date */}
-                <div className="flex items-start justify-between gap-4 mb-4">
-                  <h3 className="font-semibold text-foreground">
-                    {exp.title} <span className="text-muted-foreground font-normal">|</span> {exp.company}
-                  </h3>
-                  <span className="text-sm text-muted-foreground italic shrink-0">
-                    {exp.date}
-                  </span>
+              <div className="p-4 pl-5 sm:p-5 sm:pl-6">
+                {/* Header - Mobile: stacked, Desktop: inline */}
+                <div className="mb-3 sm:mb-4">
+                  {/* Mobile layout: Title, Company, Date stacked */}
+                  <div className="sm:hidden">
+                    <h3 className="text-sm font-semibold text-foreground">{exp.title}</h3>
+                    <p className="text-xs text-muted-foreground mt-0.5">{exp.company}</p>
+                    <p className="text-xs text-muted-foreground/70 italic mt-0.5">{exp.date}</p>
+                  </div>
+                  {/* Desktop layout: Title | Company ... Date */}
+                  <div className="hidden sm:flex items-start justify-between gap-4">
+                    <h3 className="font-semibold text-foreground">
+                      {exp.title} <span className="text-muted-foreground font-normal">|</span> {exp.company}
+                    </h3>
+                    <span className="text-sm text-muted-foreground italic shrink-0">
+                      {exp.date}
+                    </span>
+                  </div>
                 </div>
                 
                 {/* Bullet points */}
-                <ul className="space-y-2">
+                <ul className="space-y-1.5 sm:space-y-2">
                   {exp.bullets.map((bullet, bulletIndex) => (
-                    <li key={bulletIndex} className="text-sm text-muted-foreground leading-relaxed flex">
-                      <span className="mr-2 text-muted-foreground/60">•</span>
+                    <li key={bulletIndex} className="text-xs sm:text-sm text-muted-foreground leading-relaxed flex">
+                      <span className="mr-1.5 sm:mr-2 text-muted-foreground/60">•</span>
                       <span>{bullet}</span>
                     </li>
                   ))}
