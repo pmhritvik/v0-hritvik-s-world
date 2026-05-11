@@ -53,7 +53,7 @@ export function Sidebar() {
           {/* Location */}
           <div className="flex items-center gap-1 text-xs text-muted-foreground">
             <MapPin className="w-3 h-3" />
-            <span>Seattle, WA <span className="text-muted-foreground/70">(open to relocate)</span></span>
+            <span>Seattle, WA <span className="text-muted-foreground/70">(Open to relocate)</span></span>
           </div>
         </div>
       </div>
