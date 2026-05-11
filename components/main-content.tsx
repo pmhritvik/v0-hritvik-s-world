@@ -500,8 +500,7 @@ export function MainContent() {
 
       {/* Footer */}
       <footer className="text-center text-xs sm:text-sm text-muted-foreground pt-6 sm:pt-8 border-t border-border">
-        <p>Built using Next.js & Tailwind CSS</p>
-        <p className="mt-1.5 sm:mt-2">&copy; {new Date().getFullYear()} Hritvik Gaur</p>
+        <p>&copy; {new Date().getFullYear()} Hritvik Gaur</p>
       </footer>
     </main>
   )
