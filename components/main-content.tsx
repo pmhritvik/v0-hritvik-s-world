@@ -64,8 +64,7 @@ const experiences = [
       "Led cross-functional program execution across sales, engineering, and operations; built KPI dashboards in Tableau and leveraged SQL/Google Analytics to drive pricing strategy, GTM decisions, and stakeholder alignment, improving deal close rates by 22%.",
       "Identified market opportunities through competitive analysis and VOC research; launched AR/VR visualization tools and CRM integrations, driving 15% MoM leads growth and positioning the platform as a tech-first market solution.",
     ],
-    iconColor: "bg-blue-500",
-    icon: "code",
+    accentColor: "#F97316", // orange
   },
   {
     title: "Senior Product Manager",
@@ -76,8 +75,7 @@ const experiences = [
       "Translated insights from 200+ educator interviews (JTBD) into structured PRDs and wireframes (Figma); prioritized roadmap using MoSCoW in Jira, accelerating sprint velocity by 3x.",
       "Optimized growth and monetization using AARRR funnel analysis, cohort tracking, and Hotjar behavioral data; ran Lean pricing experiments in Power BI, increasing conversion rates by 19% and improving user satisfaction by 35%.",
     ],
-    iconColor: "bg-emerald-500",
-    icon: "code",
+    accentColor: "#10B981", // emerald
   },
   {
     title: "Product Manager",
@@ -88,8 +86,7 @@ const experiences = [
       "Managed cross-functional risk register across a high-ambiguity, multi-vendor environment; applied Lean principles to resolve delivery blockers, reducing manufacturing cycle time by 50% and accelerating market adoption by 40%.",
       "Drove product-market fit through Design Thinking workshops and VOC discovery across physicians, researchers, and hospital networks; synthesized clinical insights into data-driven roadmap priorities, directly aligning feature delivery to patient-facing outcomes.",
     ],
-    iconColor: "bg-teal-500",
-    icon: "pill",
+    accentColor: "#14B8A6", // teal
   },
 ]
 
@@ -173,49 +170,48 @@ export function MainContent() {
         </h2>
         <div className="space-y-4">
           {experiences.map((exp, index) => (
-            <div
+            <motion.div
               key={index}
-              className="rounded-2xl border border-border bg-card p-5"
+              className="relative rounded-2xl overflow-hidden"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              style={{
+                background: "rgba(20, 20, 20, 0.6)",
+                backdropFilter: "blur(20px) saturate(140%)",
+                border: "1px solid rgba(255, 255, 255, 0.08)",
+              }}
             >
-              <div className="flex items-start gap-4">
-                <div
-                  className={`w-12 h-12 rounded-xl ${exp.iconColor} flex items-center justify-center shrink-0`}
-                >
-                  {exp.icon === "code" && (
-                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                    </svg>
-                  )}
-                  {exp.icon === "pill" && (
-                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3h6l3 3v12a2 2 0 01-2 2H8a2 2 0 01-2-2V6l3-3z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6M9 16h6" />
-                    </svg>
-                  )}
+              {/* Colored left accent line */}
+              <div 
+                className="absolute left-0 top-4 bottom-4 w-1 rounded-full"
+                style={{ backgroundColor: exp.accentColor }}
+              />
+              
+              {/* Content */}
+              <div className="p-5 pl-6">
+                {/* Header: Title | Company ... Date */}
+                <div className="flex items-start justify-between gap-4 mb-4">
+                  <h3 className="font-semibold text-foreground">
+                    {exp.title} <span className="text-muted-foreground font-normal">|</span> {exp.company}
+                  </h3>
+                  <span className="text-sm text-muted-foreground italic shrink-0">
+                    {exp.date}
+                  </span>
                 </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-semibold text-foreground">{exp.title}</h3>
-                  <div className="flex items-center gap-3 text-[12px] text-muted-foreground mt-1 flex-wrap">
-                    <span className="flex items-center gap-1">
-                      <Calendar className="w-3 h-3" />
-                      {exp.date}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Building2 className="w-3 h-3" />
-                      {exp.company}
-                    </span>
-                  </div>
-                  <ul className="mt-3 space-y-2">
-                    {exp.bullets.map((bullet, bulletIndex) => (
-                      <li key={bulletIndex} className="text-sm text-muted-foreground leading-relaxed flex">
-                        <span className="mr-2 text-muted-foreground/60">•</span>
-                        <span>{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                
+                {/* Bullet points */}
+                <ul className="space-y-2">
+                  {exp.bullets.map((bullet, bulletIndex) => (
+                    <li key={bulletIndex} className="text-sm text-muted-foreground leading-relaxed flex">
+                      <span className="mr-2 text-muted-foreground/60">•</span>
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </motion.section>
