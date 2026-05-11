@@ -27,47 +27,53 @@ const languages = [
 export function Sidebar() {
   return (
     <aside className="lg:sticky lg:top-0 lg:h-screen lg:w-[38%] flex flex-col p-6 lg:p-8 lg:pr-12">
-      {/* Avatar */}
-      <div className="w-16 h-16 lg:w-[70px] lg:h-[70px] rounded-full overflow-hidden mb-4">
-        <Image
-          src="/avatar.jpg"
-          alt="Hritvik Gaur"
-          width={105}
-          height={105}
-          className="w-[150%] h-[150%] object-cover object-top -ml-[25%] -mt-[10%]"
-          priority
-        />
-      </div>
-
-      {/* Name with verified badge */}
-      <div className="flex items-center gap-2 mb-1">
-        <h1 className="text-2xl lg:text-3xl font-serif text-foreground">Hritvik Gaur</h1>
-        <svg
-          className="w-5 h-5 shrink-0"
-          viewBox="0 0 24 24"
-          fill="none"
-        >
-          <circle cx="12" cy="12" r="10" fill="#3B82F6" />
-          <path
-            d="M9 12l2 2 4-4"
-            stroke="white"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+      {/* Header with Avatar and Info */}
+      <div className="flex items-start gap-4 mb-6">
+        {/* Avatar */}
+        <div className="w-16 h-16 lg:w-[70px] lg:h-[70px] rounded-full overflow-hidden shrink-0">
+          <Image
+            src="/avatar.jpg"
+            alt="Hritvik Gaur"
+            width={105}
+            height={105}
+            className="w-[150%] h-[150%] object-cover object-top -ml-[25%] -mt-[10%]"
+            priority
           />
-        </svg>
-      </div>
+        </div>
 
-      {/* Title */}
-      <p className="text-sm text-foreground mb-1">AI Product Manager</p>
+        {/* Name, Title, Pronouns, Location */}
+        <div className="flex-1 min-w-0">
+          {/* Name with verified badge */}
+          <div className="flex items-center gap-2 mb-0.5">
+            <h1 className="text-xl lg:text-2xl font-semibold text-foreground">Hritvik Gaur</h1>
+            <svg
+              className="w-4 h-4 shrink-0"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <circle cx="12" cy="12" r="10" fill="#3B82F6" />
+              <path
+                d="M9 12l2 2 4-4"
+                stroke="white"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
 
-      {/* Pronouns */}
-      <p className="text-sm text-muted-foreground mb-1">he/him</p>
+          {/* Title */}
+          <p className="text-sm text-foreground mb-0.5">AI Product Manager</p>
 
-      {/* Location */}
-      <div className="flex items-center gap-1.5 text-sm text-muted-foreground mb-6">
-        <MapPin className="w-3.5 h-3.5" />
-        <span>Seattle, Washington <span className="text-muted-foreground/70">(open to relocate)</span></span>
+          {/* Pronouns */}
+          <p className="text-xs text-muted-foreground mb-1">he/him</p>
+
+          {/* Location */}
+          <div className="flex items-center gap-1 text-xs text-muted-foreground">
+            <MapPin className="w-3 h-3" />
+            <span>Seattle, WA <span className="text-muted-foreground/70">(open to relocate)</span></span>
+          </div>
+        </div>
       </div>
 
       {/* Intro */}

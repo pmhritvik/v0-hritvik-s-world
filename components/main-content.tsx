@@ -152,16 +152,10 @@ export function MainContent() {
             Product Manager with 8+ years of experience building and scaling customer focused digital products across EdTech, PropTech, Gaming, and Biotech.
           </p>
           <p>
-            Led zero to one product initiatives, platform modernization efforts, and AI driven workflow transformations across startups and growth stage companies.
+            Led zero to one product initiatives, platform modernization efforts, and AI driven workflow transformations across startups and growth stage companies. Delivered measurable business outcomes including 28x lead growth, 50% faster product lifecycles, 34% improvement in retention, and 19% conversion uplift through data informed roadmap strategy and rapid experimentation.
           </p>
           <p>
-            Delivered measurable business outcomes including 28x lead growth, 50% faster product lifecycles, 34% improvement in retention, and 19% conversion uplift through data informed roadmap strategy and rapid experimentation.
-          </p>
-          <p>
-            Experienced in product strategy, user research, stakeholder management, roadmap prioritization, Agile execution, analytics, and cross functional leadership across engineering, design, operations, and business teams.
-          </p>
-          <p>
-            Strong focus on AI enabled product ecosystems, automation workflows, customer experience optimization, and scalable platform thinking.
+            Experienced in product strategy, user research, stakeholder management, roadmap prioritization, Agile execution, analytics, and cross functional leadership across engineering, design, operations, and business teams. Strong focus on AI enabled product ecosystems, automation workflows, customer experience optimization, and scalable platform thinking.
           </p>
         </div>
       </motion.section>
