@@ -92,45 +92,55 @@ const experiences = [
 
 const education = [
   {
-    degree: "Master of Science in Information Management",
+    degree: "Masters of Science in Information Management",
+    field: "Product/Program Management & Consulting",
     school: "University of Washington",
-    date: "Sep 2025 – Aug 2026 (Expected)",
+    date: "Sep 2025 – Aug 2026",
     location: "Seattle, WA",
-    description: "Specialization in AI and Product/Program Management & Consulting.",
-    iconColor: "bg-purple-500",
+    description: "Specializing in Product and Program Management & Consulting and AI-driven Strategy, I help businesses transform ideas into scalable, technology-powered solutions that drive growth, innovation, and long-term impact.",
+    activities: "Product Management Club at UW and The Buerk Startup & Innovation Community at the University of Washington.",
+    skills: ["Product Launch", "Project Management", "OKRs", "User Stories", "Agile Methodologies", "Management Consulting"],
+    iconColor: "bg-purple-600",
   },
   {
-    degree: "MBA in Business and Marketing Management",
-    school: "NMIMS",
-    date: "Jan 2021 – Dec 2023",
-    location: "Mumbai, India",
-    description: "",
-    iconColor: "bg-orange-500",
+    degree: "Executive Course in Product Management",
+    field: "Product Management",
+    school: "Indian School of Business (ISB)",
+    date: "Nov 2021 – Mar 2022",
+    location: "Hyderabad, India",
+    description: "This course revolves around product management. It helps in analysing and gaining business insights. A resourceful product manager is a business pillar who develops, refines, and launches products to drive business growth strategically.",
+    activities: "",
+    skills: ["Product Management", "Digital Marketing", "Project Management", "AI", "Business Growth Strategies"],
+    iconColor: "bg-emerald-600",
   },
 ]
 
-const certifications = [
-  {
-    title: "Certificate in Product Management",
-    issuer: "Indian School of Business (ISB), Hyderabad",
-    iconColor: "bg-blue-500",
-  },
-]
+const certifications = [] as { title: string; issuer: string; iconColor: string }[]
 
 const testimonials = [
   {
-    name: "Evelyn Brooks",
-    role: "Lead Engineer at Sigma, managed Hritvik directly",
+    name: "Richard Carter",
+    role: "ServiceNow Manager at West Monroe",
+    relationship: "Richard was Hritvik's mentor",
     quote:
-      "Having worked alongside Hritvik, I've been consistently impressed by his exceptional skills as a product manager. Hritvik's hands-on approach and dedication to building robust products have greatly contributed to our project's success.",
-    avatar: "/testimonial-1.jpg",
+      "What impressed me most is his deep experience. Hritvik has already been part of three startups, which gives him a unique view on how to solve problems. Even though I was the mentor, I often found myself learning just as much from him. He listens very well, but he also asks the right questions that make you think. Beyond his skills, Hritvik is simply a very kind person. He is easy to talk to and treats everyone with respect. It is rare to find someone who is both this smart and this humble.",
+    avatar: "/richard-carter.jpg",
   },
   {
-    name: "Raj Patel",
-    role: "Junior Product Manager at Omega, worked with Hritvik on the same team",
+    name: "Parantap Sharma",
+    role: "SWE III at Google",
+    relationship: "Parantap worked with Hritvik on the same team",
     quote:
-      "Hritvik's expertise has been crucial in turning our ambitious project ideas into reality. His proficiency in both strategy and execution ensures a seamless integration of features, delivering a user experience that's both intuitive and high-performing.",
-    avatar: "/testimonial-2.jpg",
+      "Hritvik is among the most talented and user-focused Product Managers I have met. What stands out most about him is not just his ideas, but his ability to translate those ideas into impactful products and real business outcomes. His approach to product thinking, customer-centric problem solving, and execution has always been impressive. He has a strong understanding of how to identify user pain points, define a compelling product USP, and build solutions that genuinely create value for customers.",
+    avatar: "/parantap-sharma.jpg",
+  },
+  {
+    name: "Navaditya Gaur",
+    role: "SDE at Amazon",
+    relationship: "Navaditya reported to Hritvik directly",
+    quote:
+      "I had the opportunity to intern at Edten under Hritvik's leadership, and the experience played a major role in shaping my professional foundation as a developer. What stood out most about Hritvik was his ability to bridge the gap between product vision and technical execution. He consistently encouraged us to think beyond writing code and understand the 'why' behind every feature, customer problem, and business decision. Through his mentorship, I learned how to approach development with a user-first mindset, prioritize effectively, and build solutions that balance scalability, usability, and business impact. Hritvik is an exceptional Product Manager and leader who empowers teams to grow while maintaining a clear vision for the product and the customer.",
+    avatar: "/navaditya-gaur.jpg",
   },
 ]
 
@@ -312,51 +322,84 @@ export function MainContent() {
         <h2 className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-muted-foreground mb-3 sm:mb-4">
           Education
         </h2>
-        <div className="space-y-3 sm:space-y-4">
+        <div className="space-y-4 sm:space-y-5">
           {education.map((edu, index) => (
-            <div
+            <motion.div
               key={index}
-              className="rounded-xl sm:rounded-2xl border border-border bg-card p-4 sm:p-5"
+              className="relative rounded-xl sm:rounded-2xl overflow-hidden"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              style={{
+                background: "rgba(20, 20, 20, 0.6)",
+                backdropFilter: "blur(20px) saturate(140%)",
+                border: "1px solid rgba(255, 255, 255, 0.08)",
+              }}
             >
-              <div className="flex items-start gap-3 sm:gap-4">
-                <div
-                  className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl ${edu.iconColor} flex items-center justify-center shrink-0`}
-                >
-                  <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path d="M12 14l9-5-9-5-9 5 9 5z" />
-                    <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
-                  </svg>
-                </div>
-                <div className="flex-1 min-w-0">
+              {/* Colored left accent line */}
+              <div 
+                className={`absolute left-0 top-4 bottom-4 w-1 rounded-full ${edu.iconColor}`}
+              />
+              
+              <div className="p-4 pl-5 sm:p-5 sm:pl-6">
+                {/* Header */}
+                <div className="mb-3">
                   <h3 className="text-sm sm:text-base font-semibold text-foreground">{edu.degree}</h3>
-                  <div className="flex items-center gap-2 sm:gap-3 text-[10px] sm:text-[12px] text-muted-foreground mt-1 flex-wrap">
-                    <span className="flex items-center gap-1">
-                      <Calendar className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
-                      {edu.date}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Building2 className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
-                      {edu.school}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <MapPin className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
-                      {edu.location}
-                    </span>
-                  </div>
-                  {edu.description && (
-                    <p className="text-xs sm:text-sm text-muted-foreground mt-2 sm:mt-3 leading-relaxed">
-                      {edu.description}
-                    </p>
-                  )}
+                  <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">{edu.field}</p>
                 </div>
+                
+                {/* School, Date, Location */}
+                <div className="flex items-center gap-2 sm:gap-3 text-[10px] sm:text-[12px] text-muted-foreground mb-3 flex-wrap">
+                  <span className="flex items-center gap-1">
+                    <Building2 className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
+                    {edu.school}
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <MapPin className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
+                    {edu.location}
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <Calendar className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
+                    {edu.date}
+                  </span>
+                </div>
+                
+                {/* Description */}
+                {edu.description && (
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-3">
+                    {edu.description}
+                  </p>
+                )}
+                
+                {/* Activities */}
+                {edu.activities && (
+                  <p className="text-xs sm:text-sm text-muted-foreground/80 leading-relaxed mb-3">
+                    <span className="font-medium text-foreground/70">Activities:</span> {edu.activities}
+                  </p>
+                )}
+                
+                {/* Skills */}
+                {edu.skills && edu.skills.length > 0 && (
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-3">
+                    {edu.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="px-2 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs rounded-full border border-white/10 text-foreground/80 bg-white/5"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </motion.section>
 
-      {/* License & Certification */}
+      {/* License & Certification - Only show if there are certifications */}
+      {certifications.length > 0 && (
       <motion.section id="certifications" className="mb-8 sm:mb-12" {...fadeInUp}>
         <h2 className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-muted-foreground mb-3 sm:mb-4">
           License & Certification
@@ -384,42 +427,50 @@ export function MainContent() {
           ))}
         </div>
       </motion.section>
+      )}
 
       {/* Testimonials */}
       <motion.section id="testimonials" className="mb-8 sm:mb-12" {...fadeInUp}>
         <h2 className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-muted-foreground mb-3 sm:mb-4">
           Testimonials
         </h2>
-        <div className="space-y-3 sm:space-y-4">
+        <div className="space-y-4 sm:space-y-5">
           {testimonials.map((testimonial, index) => (
-            <div
+            <motion.div
               key={index}
-              className="rounded-xl sm:rounded-2xl border border-border bg-card p-4 sm:p-5"
+              className="relative rounded-xl sm:rounded-2xl overflow-hidden"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              style={{
+                background: "rgba(20, 20, 20, 0.6)",
+                backdropFilter: "blur(20px) saturate(140%)",
+                border: "1px solid rgba(255, 255, 255, 0.08)",
+              }}
             >
-              <div className="flex items-start gap-3 sm:gap-4">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-muted overflow-hidden shrink-0">
-                  <Image
-                    src={testimonial.avatar}
-                    alt={testimonial.name}
-                    width={48}
-                    height={48}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-sm sm:text-base font-semibold text-foreground">{testimonial.name}</h3>
-                  <p className="text-[10px] sm:text-[12px] text-muted-foreground">{testimonial.role}</p>
-                  <div className="flex items-center gap-0.5 mt-1.5 sm:mt-2">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 fill-amber-400 text-amber-400" />
-                    ))}
+              <div className="p-4 sm:p-5">
+                <div className="flex items-start gap-3 sm:gap-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-muted overflow-hidden shrink-0 ring-2 ring-white/10">
+                    <Image
+                      src={testimonial.avatar}
+                      alt={testimonial.name}
+                      width={48}
+                      height={48}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                  <p className="text-xs sm:text-sm text-muted-foreground mt-2 sm:mt-3 leading-relaxed">
-                    {testimonial.quote}
-                  </p>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-sm sm:text-base font-semibold text-foreground">{testimonial.name}</h3>
+                    <p className="text-[10px] sm:text-[12px] text-muted-foreground">{testimonial.role}</p>
+                    <p className="text-[10px] sm:text-[11px] text-muted-foreground/70 italic mt-0.5">{testimonial.relationship}</p>
+                  </div>
                 </div>
+                <p className="text-xs sm:text-sm text-muted-foreground mt-4 leading-relaxed">
+                  &ldquo;{testimonial.quote}&rdquo;
+                </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </motion.section>
@@ -449,8 +500,7 @@ export function MainContent() {
 
       {/* Footer */}
       <footer className="text-center text-xs sm:text-sm text-muted-foreground pt-6 sm:pt-8 border-t border-border">
-        <p>Built using Next.js & Tailwind CSS</p>
-        <p className="mt-1.5 sm:mt-2">&copy; {new Date().getFullYear()} Hritvik Gaur</p>
+        <p>&copy; {new Date().getFullYear()} Hritvik Gaur</p>
       </footer>
     </main>
   )
