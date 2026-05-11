@@ -16,28 +16,10 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: 'Hritvik Gaur — Product Manager',
   description: 'Product Manager building customer-centric products across EdTech, PropTech, and Biotech. Currently pursuing an MS in Information Management at the University of Washington with a focus on AI and Product Management.',
-  generator: 'v0.app',
   openGraph: {
     title: 'Hritvik Gaur — Product Manager',
     description: 'Product Manager building customer-centric products across EdTech, PropTech, and Biotech.',
     type: 'website',
-  },
-  icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
   },
 }
 
