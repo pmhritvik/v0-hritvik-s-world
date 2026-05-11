@@ -142,17 +142,26 @@ const contactLinks = [
 export function MainContent() {
   return (
     <main className="lg:w-[62%] lg:ml-auto p-6 lg:p-8 lg:pl-12 pb-32">
-      {/* Intro */}
-      <motion.section id="intro" className="mb-12" {...fadeInUp}>
+      {/* About */}
+      <motion.section id="about" className="mb-12" {...fadeInUp}>
         <h2 className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground mb-4">
-          Intro
+          About
         </h2>
         <div className="space-y-4 text-foreground leading-relaxed">
           <p>
-            {"I'm Hritvik, a Product Manager with 8+ years of experience leading products from zero-to-one across EdTech, PropTech, and Biotech. I care about turning user research into roadmaps that ship, and shipping into measurable outcomes — things like 28× lead growth, 50% faster product lifecycles, and 19% conversion lifts."}
+            Product Manager with 8+ years of experience building and scaling customer focused digital products across EdTech, PropTech, Gaming, and Biotech.
           </p>
           <p>
-            {"I'm currently in Seattle finishing my MS in Information Management at the University of Washington, specializing in AI and Product/Program Management, and I'm looking for senior PM roles where I can build AI-enabled products that actually move the needle for customers."}
+            Led zero to one product initiatives, platform modernization efforts, and AI driven workflow transformations across startups and growth stage companies.
+          </p>
+          <p>
+            Delivered measurable business outcomes including 28x lead growth, 50% faster product lifecycles, 34% improvement in retention, and 19% conversion uplift through data informed roadmap strategy and rapid experimentation.
+          </p>
+          <p>
+            Experienced in product strategy, user research, stakeholder management, roadmap prioritization, Agile execution, analytics, and cross functional leadership across engineering, design, operations, and business teams.
+          </p>
+          <p>
+            Strong focus on AI enabled product ecosystems, automation workflows, customer experience optimization, and scalable platform thinking.
           </p>
         </div>
       </motion.section>

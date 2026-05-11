@@ -70,14 +70,22 @@ export function Sidebar() {
         <span>Seattle, Washington <span className="text-muted-foreground/70">(open to relocate)</span></span>
       </div>
 
-      {/* About */}
+      {/* Intro */}
       <div className="mb-6">
         <h2 className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground mb-2">
-          About
+          Intro
         </h2>
-        <p className="text-sm text-foreground leading-relaxed">
-          Product Manager with 8+ years of experience building and scaling customer-centric products across EdTech, PropTech, and Biotech. Proven track record in product strategy, cross-functional leadership, and measurable impact, including 28x lead growth and faster release cycles. Data-driven and execution-focused, with expertise in AI-enabled products and an MS in Information Management in progress at UW.
-        </p>
+        <div className="text-sm text-foreground leading-relaxed space-y-3">
+          <p>
+            {"I'm Hritvik, an AI Product Manager currently based in Seattle and pursuing my MS in Information Management at the University of Washington, specializing in AI, Product Management, and Program Management."}
+          </p>
+          <p>
+            I enjoy building AI enabled products that translate customer insights into scalable business outcomes. My work sits at the intersection of product strategy, user research, execution, and emerging AI systems.
+          </p>
+          <p>
+            {"I'm currently looking for senior Product Management opportunities where I can build intelligent, customer centric products that create measurable impact at scale."}
+          </p>
+        </div>
       </div>
 
       {/* Contact */}

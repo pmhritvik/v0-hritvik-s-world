@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { User, Folder, Briefcase, GraduationCap, Award, Heart, Mail, FileText } from "lucide-react"
 
 const navItems = [
-  { id: "intro", icon: User, label: "Intro" },
+  { id: "about", icon: User, label: "About" },
   { id: "projects", icon: Folder, label: "Projects" },
   { id: "experience", icon: Briefcase, label: "Experience" },
   { id: "education", icon: GraduationCap, label: "Education" },
@@ -14,7 +14,7 @@ const navItems = [
 ]
 
 export function BottomNav() {
-  const [activeSection, setActiveSection] = useState("intro")
+  const [activeSection, setActiveSection] = useState("about")
 
   useEffect(() => {
     const observerOptions = {
