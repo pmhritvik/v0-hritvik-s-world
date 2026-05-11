@@ -136,10 +136,10 @@ const testimonials = [
   },
   {
     name: "Navaditya Gaur",
-    role: "SDE at AWS Redshift",
+    role: "SDE at Amazon",
     relationship: "Navaditya reported to Hritvik directly",
     quote:
-      "I have just completed my internship at Edten, under Hritvik's guidance I managed to sharpen my skills and got an opportunity to learn new skills in my field! He's an exemplary leader with vision for all.",
+      "I had the opportunity to intern at Edten under Hritvik's leadership, and the experience played a major role in shaping my professional foundation as a developer. What stood out most about Hritvik was his ability to bridge the gap between product vision and technical execution. He consistently encouraged us to think beyond writing code and understand the 'why' behind every feature, customer problem, and business decision. Through his mentorship, I learned how to approach development with a user-first mindset, prioritize effectively, and build solutions that balance scalability, usability, and business impact. Hritvik is an exceptional Product Manager and leader who empowers teams to grow while maintaining a clear vision for the product and the customer.",
     avatar: "/navaditya-gaur.jpg",
   },
 ]
