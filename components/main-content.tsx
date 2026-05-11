@@ -136,6 +136,7 @@ const contactLinks = [
   { label: "Phone", value: "+1 206-798-0422", href: "tel:+12067980422" },
   { label: "Website", value: "hritvikgaur.com", href: "https://hritvikgaur.com" },
   { label: "LinkedIn", value: "/in/pmhritvik", href: "https://linkedin.com/in/pmhritvik" },
+  { label: "Instagram", value: "@hritvikneedsajob", href: "https://instagram.com/hritvikneedsajob" },
 ]
 
 export function MainContent() {

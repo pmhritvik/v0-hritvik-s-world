@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { Mail, Globe, Phone, Linkedin, Instagram, Youtube } from "lucide-react"
+import { Mail, Globe, Phone, Linkedin, Instagram, Youtube, MapPin } from "lucide-react"
 
 const skills = [
   "Product Strategy",
@@ -32,9 +32,9 @@ export function Sidebar() {
         <Image
           src="/avatar.jpg"
           alt="Hritvik Gaur"
-          width={70}
-          height={70}
-          className="w-full h-full object-cover"
+          width={105}
+          height={105}
+          className="w-[150%] h-[150%] object-cover object-top -ml-[25%] -mt-[10%]"
           priority
         />
       </div>
@@ -58,8 +58,17 @@ export function Sidebar() {
         </svg>
       </div>
 
+      {/* Title */}
+      <p className="text-sm text-foreground mb-1">AI Product Manager</p>
+
       {/* Pronouns */}
-      <p className="text-sm text-muted-foreground mb-6">he/him</p>
+      <p className="text-sm text-muted-foreground mb-1">he/him</p>
+
+      {/* Location */}
+      <div className="flex items-center gap-1.5 text-sm text-muted-foreground mb-6">
+        <MapPin className="w-3.5 h-3.5" />
+        <span>Seattle, Washington <span className="text-muted-foreground/70">(open to relocate)</span></span>
+      </div>
 
       {/* About */}
       <div className="mb-6">
@@ -67,7 +76,7 @@ export function Sidebar() {
           About
         </h2>
         <p className="text-sm text-foreground leading-relaxed">
-          Product Manager building customer-centric products across EdTech, PropTech, and Biotech. Currently pursuing an MS in Information Management at the University of Washington with a focus on AI and Product Management.
+          Product Manager with 8+ years of experience building and scaling customer-centric products across EdTech, PropTech, and Biotech. Proven track record in product strategy, cross-functional leadership, and measurable impact, including 28x lead growth and faster release cycles. Data-driven and execution-focused, with expertise in AI-enabled products and an MS in Information Management in progress at UW.
         </p>
       </div>
 
@@ -99,6 +108,15 @@ export function Sidebar() {
           >
             <Phone className="w-4 h-4 text-muted-foreground" />
             206-798-0422
+          </a>
+          <a
+            href="https://instagram.com/hritvikneedsajob"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 text-sm text-foreground hover:text-primary transition-colors"
+          >
+            <Instagram className="w-4 h-4 text-muted-foreground" />
+            @hritvikneedsajob
           </a>
         </div>
       </div>
