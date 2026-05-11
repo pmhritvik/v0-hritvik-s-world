@@ -1,7 +1,6 @@
 "use client"
 
-import { useRef } from "react"
-import { motion, useScroll, useTransform } from "framer-motion"
+import { motion } from "framer-motion"
 import { Calendar, Building2, MapPin, Star } from "lucide-react"
 import Image from "next/image"
 
@@ -141,15 +140,6 @@ const contactLinks = [
 ]
 
 export function MainContent() {
-  const projectsContainerRef = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: projectsContainerRef,
-    offset: ["start end", "end start"],
-  })
-  
-  // Transform vertical scroll to horizontal movement
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"])
-  
   return (
     <main className="lg:w-[62%] lg:ml-auto p-6 lg:p-8 lg:pl-12 pb-32">
       {/* About */}
@@ -170,87 +160,79 @@ export function MainContent() {
         </div>
       </motion.section>
 
-      {/* Projects - Scroll-linked horizontal section */}
-      <section id="projects" className="mb-12">
-        <h2 className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground mb-4">
+      {/* Projects - Vertical stacked layout */}
+      <motion.section id="projects" className="mb-12" {...fadeInUp}>
+        <h2 className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground mb-6">
           Projects
         </h2>
-        <div 
-          ref={projectsContainerRef}
-          className="relative h-[320px] overflow-hidden"
-        >
-          <motion.div 
-            className="flex gap-5 absolute"
-            style={{ x }}
-          >
-            {projects.map((project, index) => (
-              <motion.div
-                key={project.title}
-                className="flex-shrink-0 w-[300px] lg:w-[340px] group cursor-pointer relative"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ scale: 1.02, y: -4 }}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.title}
+              className="group cursor-pointer relative"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
+              whileHover={{ scale: 1.02, y: -4 }}
+            >
+              {/* Neon glow background */}
+              <div
+                className="absolute inset-0 rounded-[2rem] blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500 -z-10"
+                style={{ background: `radial-gradient(ellipse at center, ${project.glowColor}, transparent 70%)` }}
+              />
+              
+              {/* Card */}
+              <div
+                className="relative h-[300px] rounded-[2rem] overflow-hidden"
+                style={{
+                  background: "rgba(20, 20, 20, 0.55)",
+                  backdropFilter: "blur(24px) saturate(140%)",
+                  border: "1px solid rgba(255, 255, 255, 0.1)",
+                  boxShadow: "inset 0 1px 0 rgba(255,255,255,0.1), 0 20px 50px rgba(0,0,0,0.4)",
+                }}
               >
-                {/* Neon glow background */}
+                {/* Inner gradient glow */}
                 <div
-                  className="absolute inset-0 rounded-[2rem] blur-2xl opacity-50 group-hover:opacity-70 transition-opacity duration-500 -z-10"
-                  style={{ background: `radial-gradient(ellipse at center, ${project.glowColor}, transparent 70%)` }}
+                  className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-20 group-hover:opacity-30 transition-opacity duration-500`}
                 />
                 
-                {/* Card */}
-                <div
-                  className="relative h-[280px] rounded-[2rem] overflow-hidden"
-                  style={{
-                    background: "rgba(20, 20, 20, 0.55)",
-                    backdropFilter: "blur(24px) saturate(140%)",
-                    border: "1px solid rgba(255, 255, 255, 0.1)",
-                    boxShadow: "inset 0 1px 0 rgba(255,255,255,0.1), 0 20px 50px rgba(0,0,0,0.4)",
-                  }}
-                >
-                  {/* Inner gradient glow */}
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-20 group-hover:opacity-30 transition-opacity duration-500`}
-                  />
+                {/* Content */}
+                <div className="relative h-full flex flex-col justify-between p-6">
+                  {/* Top section */}
+                  <div>
+                    <span className="text-[11px] font-mono uppercase tracking-wider text-white/60">
+                      {project.category}
+                    </span>
+                    <h3 className="text-xl font-bold text-white mt-3 leading-tight">
+                      {project.title}
+                    </h3>
+                  </div>
                   
-                  {/* Content */}
-                  <div className="relative h-full flex flex-col justify-between p-6">
-                    {/* Top section */}
-                    <div>
-                      <span className="text-[11px] font-mono uppercase tracking-wider text-white/60">
-                        {project.category}
-                      </span>
-                      <h3 className="text-xl font-bold text-white mt-3 leading-tight">
-                        {project.title}
-                      </h3>
-                    </div>
+                  {/* Bottom section */}
+                  <div>
+                    <p className="text-sm text-white/70 leading-relaxed line-clamp-3 mb-4">
+                      {project.description}
+                    </p>
                     
-                    {/* Bottom section */}
-                    <div>
-                      <p className="text-sm text-white/70 leading-relaxed line-clamp-2 mb-4">
-                        {project.description}
-                      </p>
-                      
-                      {/* Explore button */}
-                      <div
-                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full transition-all duration-300"
-                        style={{
-                          background: "rgba(255, 255, 255, 0.1)",
-                          border: "1px solid rgba(255, 255, 255, 0.15)",
-                        }}
-                      >
-                        <span className="text-sm text-white/90 font-medium">Explore More</span>
-                        <span className="text-white/70">+</span>
-                      </div>
+                    {/* Explore button */}
+                    <div
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full transition-all duration-300 group-hover:bg-white/15"
+                      style={{
+                        background: "rgba(255, 255, 255, 0.1)",
+                        border: "1px solid rgba(255, 255, 255, 0.15)",
+                      }}
+                    >
+                      <span className="text-sm text-white/90 font-medium">Explore More</span>
+                      <span className="text-white/70">+</span>
                     </div>
                   </div>
                 </div>
-              </motion.div>
-            ))}
-          </motion.div>
+              </div>
+            </motion.div>
+          ))}
         </div>
-      </section>
+      </motion.section>
 
       {/* Experience */}
       <motion.section id="experience" className="mb-12" {...fadeInUp}>
