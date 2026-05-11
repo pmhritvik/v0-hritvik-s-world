@@ -34,9 +34,9 @@ export function Sidebar() {
           <Image
             src="/avatar.jpg"
             alt="Hritvik Gaur"
-            width={105}
-            height={105}
-            className="w-[150%] h-[150%] object-cover object-top -ml-[25%] -mt-[10%]"
+            width={70}
+            height={70}
+            className="w-full h-full object-cover object-center"
             priority
           />
         </div>
