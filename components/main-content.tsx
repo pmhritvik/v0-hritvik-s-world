@@ -299,44 +299,44 @@ export function MainContent() {
       </motion.section>
 
       {/* Education */}
-      <motion.section id="education" className="mb-12" {...fadeInUp}>
-        <h2 className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground mb-4">
+      <motion.section id="education" className="mb-8 sm:mb-12" {...fadeInUp}>
+        <h2 className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-muted-foreground mb-3 sm:mb-4">
           Education
         </h2>
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           {education.map((edu, index) => (
             <div
               key={index}
-              className="rounded-2xl border border-border bg-card p-5"
+              className="rounded-xl sm:rounded-2xl border border-border bg-card p-4 sm:p-5"
             >
-              <div className="flex items-start gap-4">
+              <div className="flex items-start gap-3 sm:gap-4">
                 <div
-                  className={`w-12 h-12 rounded-xl ${edu.iconColor} flex items-center justify-center shrink-0`}
+                  className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl ${edu.iconColor} flex items-center justify-center shrink-0`}
                 >
-                  <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path d="M12 14l9-5-9-5-9 5 9 5z" />
                     <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
                   </svg>
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-semibold text-foreground">{edu.degree}</h3>
-                  <div className="flex items-center gap-3 text-[12px] text-muted-foreground mt-1 flex-wrap">
+                  <h3 className="text-sm sm:text-base font-semibold text-foreground">{edu.degree}</h3>
+                  <div className="flex items-center gap-2 sm:gap-3 text-[10px] sm:text-[12px] text-muted-foreground mt-1 flex-wrap">
                     <span className="flex items-center gap-1">
-                      <Calendar className="w-3 h-3" />
+                      <Calendar className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
                       {edu.date}
                     </span>
                     <span className="flex items-center gap-1">
-                      <Building2 className="w-3 h-3" />
+                      <Building2 className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
                       {edu.school}
                     </span>
                     <span className="flex items-center gap-1">
-                      <MapPin className="w-3 h-3" />
+                      <MapPin className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
                       {edu.location}
                     </span>
                   </div>
                   {edu.description && (
-                    <p className="text-sm text-muted-foreground mt-3 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-muted-foreground mt-2 sm:mt-3 leading-relaxed">
                       {edu.description}
                     </p>
                   )}
@@ -348,27 +348,27 @@ export function MainContent() {
       </motion.section>
 
       {/* License & Certification */}
-      <motion.section id="certifications" className="mb-12" {...fadeInUp}>
-        <h2 className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground mb-4">
+      <motion.section id="certifications" className="mb-8 sm:mb-12" {...fadeInUp}>
+        <h2 className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-muted-foreground mb-3 sm:mb-4">
           License & Certification
         </h2>
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           {certifications.map((cert, index) => (
             <div
               key={index}
-              className="rounded-2xl border border-border bg-card p-5"
+              className="rounded-xl sm:rounded-2xl border border-border bg-card p-4 sm:p-5"
             >
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3 sm:gap-4">
                 <div
-                  className={`w-12 h-12 rounded-xl ${cert.iconColor} flex items-center justify-center shrink-0`}
+                  className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl ${cert.iconColor} flex items-center justify-center shrink-0`}
                 >
-                  <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground">{cert.title}</h3>
-                  <p className="text-sm text-muted-foreground mt-1">{cert.issuer}</p>
+                  <h3 className="text-sm sm:text-base font-semibold text-foreground">{cert.title}</h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground mt-0.5 sm:mt-1">{cert.issuer}</p>
                 </div>
               </div>
             </div>
@@ -377,18 +377,18 @@ export function MainContent() {
       </motion.section>
 
       {/* Testimonials */}
-      <motion.section id="testimonials" className="mb-12" {...fadeInUp}>
-        <h2 className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground mb-4">
+      <motion.section id="testimonials" className="mb-8 sm:mb-12" {...fadeInUp}>
+        <h2 className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-muted-foreground mb-3 sm:mb-4">
           Testimonials
         </h2>
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="rounded-2xl border border-border bg-card p-5"
+              className="rounded-xl sm:rounded-2xl border border-border bg-card p-4 sm:p-5"
             >
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-muted overflow-hidden shrink-0">
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-muted overflow-hidden shrink-0">
                   <Image
                     src={testimonial.avatar}
                     alt={testimonial.name}
@@ -398,14 +398,14 @@ export function MainContent() {
                   />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-semibold text-foreground">{testimonial.name}</h3>
-                  <p className="text-[12px] text-muted-foreground">{testimonial.role}</p>
-                  <div className="flex items-center gap-0.5 mt-2">
+                  <h3 className="text-sm sm:text-base font-semibold text-foreground">{testimonial.name}</h3>
+                  <p className="text-[10px] sm:text-[12px] text-muted-foreground">{testimonial.role}</p>
+                  <div className="flex items-center gap-0.5 mt-1.5 sm:mt-2">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                      <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 fill-amber-400 text-amber-400" />
                     ))}
                   </div>
-                  <p className="text-sm text-muted-foreground mt-3 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-muted-foreground mt-2 sm:mt-3 leading-relaxed">
                     {testimonial.quote}
                   </p>
                 </div>
@@ -416,32 +416,32 @@ export function MainContent() {
       </motion.section>
 
       {/* Contact */}
-      <motion.section id="contact" className="mb-12" {...fadeInUp}>
-        <h2 className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground mb-4">
+      <motion.section id="contact" className="mb-8 sm:mb-12" {...fadeInUp}>
+        <h2 className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-muted-foreground mb-3 sm:mb-4">
           Contact
         </h2>
-        <div className="rounded-2xl border border-border bg-card overflow-hidden">
+        <div className="rounded-xl sm:rounded-2xl border border-border bg-card overflow-hidden">
           {contactLinks.map((link, index) => (
             <a
               key={link.label}
               href={link.href}
               target={link.href.startsWith("http") ? "_blank" : undefined}
               rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-              className={`flex items-center justify-between p-4 hover:bg-muted/50 transition-colors ${
+              className={`flex items-center justify-between p-3 sm:p-4 hover:bg-muted/50 transition-colors ${
                 index !== contactLinks.length - 1 ? "border-b border-border" : ""
               }`}
             >
-              <span className="text-sm text-foreground">{link.label}</span>
-              <span className="text-sm text-muted-foreground">{link.value}</span>
+              <span className="text-xs sm:text-sm text-foreground">{link.label}</span>
+              <span className="text-xs sm:text-sm text-muted-foreground truncate ml-4">{link.value}</span>
             </a>
           ))}
         </div>
       </motion.section>
 
       {/* Footer */}
-      <footer className="text-center text-sm text-muted-foreground pt-8 border-t border-border">
+      <footer className="text-center text-xs sm:text-sm text-muted-foreground pt-6 sm:pt-8 border-t border-border">
         <p>Built using Next.js & Tailwind CSS</p>
-        <p className="mt-2">&copy; {new Date().getFullYear()} Hritvik Gaur</p>
+        <p className="mt-1.5 sm:mt-2">&copy; {new Date().getFullYear()} Hritvik Gaur</p>
       </footer>
     </main>
   )
