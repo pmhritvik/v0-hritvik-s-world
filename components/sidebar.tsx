@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { Mail, Globe, Phone, Linkedin } from "lucide-react"
+import { Mail, Globe, Phone, Linkedin, Instagram, Youtube } from "lucide-react"
 
 const skills = [
   "Product Strategy",
@@ -155,6 +155,15 @@ export function Sidebar() {
           </svg>
         </a>
         <a
+          href="https://instagram.com/hritvikneedsajob"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-muted-foreground hover:text-foreground transition-colors"
+          aria-label="Instagram"
+        >
+          <Instagram className="w-5 h-5" />
+        </a>
+        <a
           href="https://linkedin.com/in/pmhritvik"
           target="_blank"
           rel="noopener noreferrer"
@@ -162,6 +171,15 @@ export function Sidebar() {
           aria-label="LinkedIn"
         >
           <Linkedin className="w-5 h-5" />
+        </a>
+        <a
+          href="https://www.youtube.com/@TheStartupGuyYT"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-muted-foreground hover:text-foreground transition-colors"
+          aria-label="YouTube"
+        >
+          <Youtube className="w-5 h-5" />
         </a>
       </div>
     </aside>
