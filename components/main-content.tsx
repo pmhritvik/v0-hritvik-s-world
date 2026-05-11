@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Calendar, Building2, MapPin, User, Folder, Star } from "lucide-react"
+import { Calendar, Building2, MapPin, Star } from "lucide-react"
 import Image from "next/image"
 
 const fadeInUp = {
@@ -19,8 +19,8 @@ const projects = [
     role: "Product & Marketing Consultant",
     description:
       "Re-architected roadmap with a defined North Star metric; drove VOC research and competitive analysis, tripling qualified leads in 5 months.",
-    color: "bg-orange-200",
-    iconColor: "bg-orange-500",
+    gradient: "from-orange-500 via-amber-500 to-yellow-500",
+    glowColor: "rgba(249, 115, 22, 0.4)",
   },
   {
     title: "Cubical SEO — Ludo Gaming App",
@@ -29,8 +29,8 @@ const projects = [
     role: "Product Strategy Consultant",
     description:
       "Led product strategy using Design Thinking and AARRR; improved retention by 34% through gamification and feature optimization.",
-    color: "bg-teal-200",
-    iconColor: "bg-teal-500",
+    gradient: "from-cyan-400 via-teal-500 to-emerald-500",
+    glowColor: "rgba(6, 182, 212, 0.4)",
   },
   {
     title: "The Startup Guy",
@@ -39,8 +39,8 @@ const projects = [
     role: "Digital Product Strategist",
     description:
       "Owned roadmap in Asana with OKR-led Agile sprints; scaled platform to 800+ entrepreneurs and drove 3× growth in digital reach.",
-    color: "bg-yellow-200",
-    iconColor: "bg-yellow-500",
+    gradient: "from-fuchsia-500 via-pink-500 to-rose-500",
+    glowColor: "rgba(217, 70, 239, 0.4)",
   },
   {
     title: "WebVeda — How to Instagram",
@@ -49,8 +49,8 @@ const projects = [
     role: "Course Co-Developer",
     description:
       "Co-developed course product with Ankur Warikoo's team (5M+ YouTube subscribers); applied MoSCoW prioritization to improve learner engagement.",
-    color: "bg-purple-200",
-    iconColor: "bg-purple-500",
+    gradient: "from-violet-500 via-purple-500 to-indigo-500",
+    glowColor: "rgba(139, 92, 246, 0.4)",
   },
 ]
 
@@ -161,38 +161,68 @@ export function MainContent() {
         <h2 className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground mb-4">
           Projects
         </h2>
-        <div className="flex gap-4 overflow-x-auto pb-4 -mx-6 px-6 lg:-mx-8 lg:px-8 scrollbar-hide">
+        <div className="flex gap-5 overflow-x-auto pb-4 -mx-6 px-6 lg:-mx-8 lg:px-8 scrollbar-hide">
           {projects.map((project) => (
-            <div
+            <motion.div
               key={project.title}
-              className="flex-shrink-0 w-[280px] lg:w-[300px] rounded-2xl border border-border bg-card overflow-hidden"
+              className="flex-shrink-0 w-[300px] lg:w-[340px] group cursor-pointer"
+              whileHover={{ scale: 1.02, y: -4 }}
+              transition={{ type: "spring", stiffness: 400, damping: 25 }}
             >
-              <div className={`h-[140px] ${project.color}`} />
-              <div className="p-4">
-                <div className="flex items-start gap-3">
-                  <div
-                    className={`w-10 h-10 rounded-xl ${project.iconColor} flex items-center justify-center shrink-0`}
-                  >
-                    <Folder className="w-5 h-5 text-white" />
-                  </div>
-                  <div className="min-w-0">
-                    <h3 className="font-semibold text-sm text-foreground truncate">
+              {/* Neon glow background */}
+              <div
+                className="absolute inset-0 rounded-[2rem] blur-2xl opacity-50 group-hover:opacity-70 transition-opacity duration-500 -z-10"
+                style={{ background: `radial-gradient(ellipse at center, ${project.glowColor}, transparent 70%)` }}
+              />
+              
+              {/* Card */}
+              <div
+                className="relative h-[280px] rounded-[2rem] overflow-hidden"
+                style={{
+                  background: "rgba(20, 20, 20, 0.55)",
+                  backdropFilter: "blur(24px) saturate(140%)",
+                  border: "1px solid rgba(255, 255, 255, 0.1)",
+                  boxShadow: "inset 0 1px 0 rgba(255,255,255,0.1), 0 20px 50px rgba(0,0,0,0.4)",
+                }}
+              >
+                {/* Inner gradient glow */}
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-20 group-hover:opacity-30 transition-opacity duration-500`}
+                />
+                
+                {/* Content */}
+                <div className="relative h-full flex flex-col justify-between p-6">
+                  {/* Top section */}
+                  <div>
+                    <span className="text-[11px] font-mono uppercase tracking-wider text-white/60">
+                      {project.category}
+                    </span>
+                    <h3 className="text-xl font-bold text-white mt-3 leading-tight">
                       {project.title}
                     </h3>
-                    <div className="flex items-center gap-2 text-[11px] text-muted-foreground mt-1 flex-wrap">
-                      <span className="flex items-center gap-1">
-                        <Calendar className="w-3 h-3" />
-                        {project.date.split(" – ")[0]}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <User className="w-3 h-3" />
-                        {project.role}
-                      </span>
+                  </div>
+                  
+                  {/* Bottom section */}
+                  <div>
+                    <p className="text-sm text-white/70 leading-relaxed line-clamp-2 mb-4">
+                      {project.description}
+                    </p>
+                    
+                    {/* Explore button */}
+                    <div
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full transition-all duration-300"
+                      style={{
+                        background: "rgba(255, 255, 255, 0.1)",
+                        border: "1px solid rgba(255, 255, 255, 0.15)",
+                      }}
+                    >
+                      <span className="text-sm text-white/90 font-medium">Explore More</span>
+                      <span className="text-white/70">+</span>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </motion.section>
