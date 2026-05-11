@@ -87,7 +87,8 @@ export function BottomNav() {
         {/* Resume button with animated gradient border */}
         <a
           href="/Hritvik_Resume.pdf"
-          download="Hritvik_Gaur_Resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
           className="relative group"
         >
           {/* Animated gradient border */}
