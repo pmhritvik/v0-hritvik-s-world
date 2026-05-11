@@ -5,8 +5,8 @@ import { User, Folder, Briefcase, GraduationCap, Award, Heart, Mail, FileText } 
 
 const navItems = [
   { id: "about", icon: User, label: "About" },
-  { id: "projects", icon: Folder, label: "Projects" },
   { id: "experience", icon: Briefcase, label: "Experience" },
+  { id: "projects", icon: Folder, label: "Projects" },
   { id: "education", icon: GraduationCap, label: "Education" },
   { id: "certifications", icon: Award, label: "Certifications" },
   { id: "testimonials", icon: Heart, label: "Testimonials" },

@@ -1,7 +1,8 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { Calendar, Building2, MapPin, Star } from "lucide-react"
+import { useRef } from "react"
+import { motion, useScroll, useTransform } from "framer-motion"
+import { Calendar, Building2, Star } from "lucide-react"
 import Image from "next/image"
 
 const fadeInUp = {
@@ -59,31 +60,37 @@ const experiences = [
     title: "Head of Product",
     company: "SKG Real Estate Developers LLP",
     date: "Jul 2023 – Sep 2025",
-    location: "Remote",
-    description:
-      "Owned product strategy and roadmap for a tech-enabled real estate platform. Prioritized features using RICE and executed via Agile/Scrum in Jira, scaling active projects from 5 to 18 and reducing lifecycle by 28%. Built KPI dashboards in Tableau; leveraged SQL and Google Analytics to drive pricing strategy and GTM decisions, improving deal close rates by 22%. Launched AR/VR visualization tools and CRM integrations, driving 15% MoM lead growth.",
-    iconColor: "bg-red-500",
-    icon: "briefcase",
+    bullets: [
+      "Owned product strategy and roadmap for a tech-enabled real estate platform; prioritized features using RICE and executed via Agile/Scrum in Jira, scaling active projects from 5 to 18 and reducing lifecycle by 28% through automation pipelines.",
+      "Led cross-functional program execution across sales, engineering, and operations; built KPI dashboards in Tableau and leveraged SQL/Google Analytics to drive pricing strategy, GTM decisions, and stakeholder alignment, improving deal close rates by 22%.",
+      "Identified market opportunities through competitive analysis and VOC research; launched AR/VR visualization tools and CRM integrations, driving 15% MoM leads growth and positioning the platform as a tech-first market solution.",
+    ],
+    iconColor: "bg-blue-500",
+    icon: "code",
   },
   {
     title: "Senior Product Manager",
     company: "Edten Technologies LLP",
     date: "Sep 2019 – Jul 2023",
-    location: "India",
-    description:
-      "Defined product vision, North Star metrics, and OKRs for a B2B EdTech platform; scaled to 1,450+ preschools, 91,000+ students, and $465K ARR across 12+ feature launches. Translated 200+ educator interviews (JTBD) into PRDs and Figma wireframes; prioritized via MoSCoW, accelerating sprint velocity by 3×. Ran AARRR funnel analysis, cohort tracking, and Lean pricing experiments in Power BI, lifting conversion 19% and satisfaction 35%.",
+    bullets: [
+      "Defined product vision, North Star metrics, and OKRs for a B2B EdTech platform; scaled to 1,450+ preschools, 91,000+ students, and $465K ARR by orchestrating 12+ feature launches in an Agile environment.",
+      "Translated insights from 200+ educator interviews (JTBD) into structured PRDs and wireframes (Figma); prioritized roadmap using MoSCoW in Jira, accelerating sprint velocity by 3x.",
+      "Optimized growth and monetization using AARRR funnel analysis, cohort tracking, and Hotjar behavioral data; ran Lean pricing experiments in Power BI, increasing conversion rates by 19% and improving user satisfaction by 35%.",
+    ],
     iconColor: "bg-emerald-500",
-    icon: "zap",
+    icon: "code",
   },
   {
     title: "Product Manager",
     company: "HR Biotech",
     date: "Apr 2017 – Aug 2019",
-    location: "India",
-    description:
-      "Owned end-to-end product lifecycle for 21 pharma products; scaled revenue from $64K to $285K (4.5×) through GTM execution, A/B pricing experiments, and alignment across 12+ manufacturers. Applied Lean principles to a cross-functional risk register, reducing manufacturing cycle time by 50%. Drove PMF through Design Thinking workshops and VOC discovery across physicians, researchers, and hospital networks.",
+    bullets: [
+      "Owned end-to-end product lifecycle for 21 pharma products; scaled revenue from $64K to $285K (4.5x) through structured GTM execution, competitive pricing A/B experiments, and stakeholder alignment across 12+ manufacturers tracked in Jira.",
+      "Managed cross-functional risk register across a high-ambiguity, multi-vendor environment; applied Lean principles to resolve delivery blockers, reducing manufacturing cycle time by 50% and accelerating market adoption by 40%.",
+      "Drove product-market fit through Design Thinking workshops and VOC discovery across physicians, researchers, and hospital networks; synthesized clinical insights into data-driven roadmap priorities, directly aligning feature delivery to patient-facing outcomes.",
+    ],
     iconColor: "bg-teal-500",
-    icon: "flask",
+    icon: "pill",
   },
 ]
 
@@ -140,6 +147,15 @@ const contactLinks = [
 ]
 
 export function MainContent() {
+  const projectsContainerRef = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: projectsContainerRef,
+    offset: ["start start", "end end"],
+  })
+  
+  // Transform vertical scroll to horizontal movement for projects
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-50%"])
+  
   return (
     <main className="lg:w-[62%] lg:ml-auto p-6 lg:p-8 lg:pl-12 pb-32">
       {/* About */}
@@ -160,81 +176,7 @@ export function MainContent() {
         </div>
       </motion.section>
 
-      {/* Projects - Vertical stacked layout */}
-      <motion.section id="projects" className="mb-12" {...fadeInUp}>
-        <h2 className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground mb-6">
-          Projects
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.title}
-              className="group cursor-pointer relative"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              whileHover={{ scale: 1.02, y: -4 }}
-            >
-              {/* Neon glow background */}
-              <div
-                className="absolute inset-0 rounded-[2rem] blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500 -z-10"
-                style={{ background: `radial-gradient(ellipse at center, ${project.glowColor}, transparent 70%)` }}
-              />
-              
-              {/* Card */}
-              <div
-                className="relative h-[300px] rounded-[2rem] overflow-hidden"
-                style={{
-                  background: "rgba(20, 20, 20, 0.55)",
-                  backdropFilter: "blur(24px) saturate(140%)",
-                  border: "1px solid rgba(255, 255, 255, 0.1)",
-                  boxShadow: "inset 0 1px 0 rgba(255,255,255,0.1), 0 20px 50px rgba(0,0,0,0.4)",
-                }}
-              >
-                {/* Inner gradient glow */}
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-20 group-hover:opacity-30 transition-opacity duration-500`}
-                />
-                
-                {/* Content */}
-                <div className="relative h-full flex flex-col justify-between p-6">
-                  {/* Top section */}
-                  <div>
-                    <span className="text-[11px] font-mono uppercase tracking-wider text-white/60">
-                      {project.category}
-                    </span>
-                    <h3 className="text-xl font-bold text-white mt-3 leading-tight">
-                      {project.title}
-                    </h3>
-                  </div>
-                  
-                  {/* Bottom section */}
-                  <div>
-                    <p className="text-sm text-white/70 leading-relaxed line-clamp-3 mb-4">
-                      {project.description}
-                    </p>
-                    
-                    {/* Explore button */}
-                    <div
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full transition-all duration-300 group-hover:bg-white/15"
-                      style={{
-                        background: "rgba(255, 255, 255, 0.1)",
-                        border: "1px solid rgba(255, 255, 255, 0.15)",
-                      }}
-                    >
-                      <span className="text-sm text-white/90 font-medium">Explore More</span>
-                      <span className="text-white/70">+</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </motion.section>
-
-      {/* Experience */}
+      {/* Experience - Now before Projects */}
       <motion.section id="experience" className="mb-12" {...fadeInUp}>
         <h2 className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground mb-4">
           Experience
@@ -249,19 +191,15 @@ export function MainContent() {
                 <div
                   className={`w-12 h-12 rounded-xl ${exp.iconColor} flex items-center justify-center shrink-0`}
                 >
-                  {exp.icon === "briefcase" && (
+                  {exp.icon === "code" && (
                     <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                     </svg>
                   )}
-                  {exp.icon === "zap" && (
+                  {exp.icon === "pill" && (
                     <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                  )}
-                  {exp.icon === "flask" && (
-                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3h6l3 3v12a2 2 0 01-2 2H8a2 2 0 01-2-2V6l3-3z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6M9 16h6" />
                     </svg>
                   )}
                 </div>
@@ -276,20 +214,105 @@ export function MainContent() {
                       <Building2 className="w-3 h-3" />
                       {exp.company}
                     </span>
-                    <span className="flex items-center gap-1">
-                      <MapPin className="w-3 h-3" />
-                      {exp.location}
-                    </span>
                   </div>
-                  <p className="text-sm text-muted-foreground mt-3 leading-relaxed">
-                    {exp.description}
-                  </p>
+                  <ul className="mt-3 space-y-2">
+                    {exp.bullets.map((bullet, bulletIndex) => (
+                      <li key={bulletIndex} className="text-sm text-muted-foreground leading-relaxed flex">
+                        <span className="mr-2 text-muted-foreground/60">•</span>
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </div>
           ))}
         </div>
       </motion.section>
+
+      {/* Projects - Scroll-linked horizontal section */}
+      <section id="projects" className="mb-12">
+        <h2 className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground mb-6">
+          Projects
+        </h2>
+        <div 
+          ref={projectsContainerRef}
+          className="relative h-[800px]"
+        >
+          <div className="sticky top-0 h-[320px] overflow-hidden">
+            <motion.div 
+              className="flex gap-6"
+              style={{ x }}
+            >
+              {projects.map((project, index) => (
+                <motion.div
+                  key={project.title}
+                  className="flex-shrink-0 w-[calc(50%-12px)] min-w-[300px] max-w-[400px] group cursor-pointer relative"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ scale: 1.02, y: -4 }}
+                >
+                  {/* Neon glow background */}
+                  <div
+                    className="absolute inset-0 rounded-[2rem] blur-2xl opacity-50 group-hover:opacity-70 transition-opacity duration-500 -z-10"
+                    style={{ background: `radial-gradient(ellipse at center, ${project.glowColor}, transparent 70%)` }}
+                  />
+                  
+                  {/* Card */}
+                  <div
+                    className="relative h-[300px] rounded-[2rem] overflow-hidden"
+                    style={{
+                      background: "rgba(20, 20, 20, 0.55)",
+                      backdropFilter: "blur(24px) saturate(140%)",
+                      border: "1px solid rgba(255, 255, 255, 0.1)",
+                      boxShadow: "inset 0 1px 0 rgba(255,255,255,0.1), 0 20px 50px rgba(0,0,0,0.4)",
+                    }}
+                  >
+                    {/* Inner gradient glow */}
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-20 group-hover:opacity-30 transition-opacity duration-500`}
+                    />
+                    
+                    {/* Content */}
+                    <div className="relative h-full flex flex-col justify-between p-6">
+                      {/* Top section */}
+                      <div>
+                        <span className="text-[11px] font-mono uppercase tracking-wider text-white/60">
+                          {project.category}
+                        </span>
+                        <h3 className="text-xl font-bold text-white mt-3 leading-tight">
+                          {project.title}
+                        </h3>
+                      </div>
+                      
+                      {/* Bottom section */}
+                      <div>
+                        <p className="text-sm text-white/70 leading-relaxed line-clamp-3 mb-4">
+                          {project.description}
+                        </p>
+                        
+                        {/* Explore button */}
+                        <div
+                          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full transition-all duration-300 group-hover:bg-white/15"
+                          style={{
+                            background: "rgba(255, 255, 255, 0.1)",
+                            border: "1px solid rgba(255, 255, 255, 0.15)",
+                          }}
+                        >
+                          <span className="text-sm text-white/90 font-medium">Explore More</span>
+                          <span className="text-white/70">+</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
 
       {/* Education */}
       <motion.section id="education" className="mb-12" {...fadeInUp}>
