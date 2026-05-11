@@ -131,7 +131,7 @@ const testimonials = [
     role: "SWE III at Google",
     relationship: "Parantap worked with Hritvik on the same team",
     quote:
-      "Hritvik is among the most talented entrepreneur I have met. The most enticing thing about him is his ideas and his approach towards turning ideas into reality. I had some quality conversations with him not specifically about his venture but across industries as well. I would recommend reaching out to him to understand different aspects of entrepreneurship and specifically to figure out the USP you can provide to the customer.",
+      "Hritvik is among the most talented and user-focused Product Managers I have met. What stands out most about him is not just his ideas, but his ability to translate those ideas into impactful products and real business outcomes. His approach to product thinking, customer-centric problem solving, and execution has always been impressive. He has a strong understanding of how to identify user pain points, define a compelling product USP, and build solutions that genuinely create value for customers.",
     avatar: "/parantap-sharma.jpg",
   },
   {
