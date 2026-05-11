@@ -4,50 +4,27 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Warm off-white paper background */
-  --background: #F5F2EC;
-  --foreground: #111111;
-  --card: #FFFFFF;
-  --card-foreground: #111111;
-  --popover: #FFFFFF;
-  --popover-foreground: #111111;
-  /* Deep navy accent */
-  --primary: #0B2545;
-  --primary-foreground: #FFFFFF;
-  --secondary: #F5F2EC;
-  --secondary-foreground: #111111;
-  --muted: #E6E1D7;
-  --muted-foreground: #6B6B6B;
-  --accent: #0B2545;
-  --accent-foreground: #FFFFFF;
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: #E6E1D7;
-  --input: #E6E1D7;
-  --ring: #0B2545;
-  --radius: 1.25rem;
-}
-
-.dark {
-  --background: #111111;
-  --foreground: #F5F2EC;
+  /* Dark theme matching Resumx */
+  --background: #0D0D0D;
+  --foreground: #FFFFFF;
   --card: #1A1A1A;
-  --card-foreground: #F5F2EC;
+  --card-foreground: #FFFFFF;
   --popover: #1A1A1A;
-  --popover-foreground: #F5F2EC;
-  --primary: #4A90D9;
-  --primary-foreground: #111111;
+  --popover-foreground: #FFFFFF;
+  --primary: #3B82F6;
+  --primary-foreground: #FFFFFF;
   --secondary: #1A1A1A;
-  --secondary-foreground: #F5F2EC;
+  --secondary-foreground: #FFFFFF;
   --muted: #2A2A2A;
   --muted-foreground: #9A9A9A;
-  --accent: #4A90D9;
-  --accent-foreground: #111111;
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --accent: #3B82F6;
+  --accent-foreground: #FFFFFF;
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: #FFFFFF;
   --border: #2A2A2A;
   --input: #2A2A2A;
-  --ring: #4A90D9;
+  --ring: #3B82F6;
+  --radius: 1rem;
 }
 
 @theme inline {
@@ -90,4 +67,22 @@
   html {
     scroll-behavior: smooth;
   }
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0D0D0D;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2A2A2A;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3A3A3A;
 }

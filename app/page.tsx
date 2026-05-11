@@ -1,27 +1,15 @@
-import { Navigation } from "@/components/navigation"
-import { HeroSection } from "@/components/hero-section"
-import { IntroSection } from "@/components/intro-section"
-import { ExperienceSection } from "@/components/experience-section"
-import { ProjectsSection } from "@/components/projects-section"
-import { EducationSection } from "@/components/education-section"
-import { SkillsSection } from "@/components/skills-section"
-import { ContactSection } from "@/components/contact-section"
-import { Footer } from "@/components/footer"
+import { Sidebar } from "@/components/sidebar"
+import { MainContent } from "@/components/main-content"
+import { BottomNav } from "@/components/bottom-nav"
 
-export default function ResumePage() {
+export default function Home() {
   return (
-    <>
-      <Navigation />
-      <main className="max-w-5xl mx-auto px-6">
-        <HeroSection />
-        <IntroSection />
-        <ExperienceSection />
-        <ProjectsSection />
-        <EducationSection />
-        <SkillsSection />
-        <ContactSection />
-        <Footer />
-      </main>
-    </>
+    <div className="min-h-screen bg-background">
+      <div className="flex flex-col lg:flex-row">
+        <Sidebar />
+        <MainContent />
+      </div>
+      <BottomNav />
+    </div>
   )
 }
